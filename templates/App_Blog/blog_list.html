@@ -5,8 +5,7 @@
 {% block body_block %}
     <br>
 {% for blog in blogs %}
-    <h1>{{ blog.blog_title }}</h1>
-    <h6>{{ blog.publish_date }}</h6>
+   
     <div class="row">
     <div class="col-sm-5">
         <img src="/media/{{ blog.blog_image }}" alt="{{ blog.blog_title }}" title="{{ blog.blog_title }}" width="100%">
