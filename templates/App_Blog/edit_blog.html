@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}Edit : {{ blog.blog_title }}{% endblock %}
+{% block body_block %}
+{% if blog.author == user %}
+    <form method="POST" enctype="multipart/form-data">
+     {{ form|crispy }}
+    {% csrf_token %}
+        <br>
+    <button type="submit" value="submit" class="btn btn-success btn-sm">Save</button>
+    </form>
+{% endif %}
+{% endblock %}

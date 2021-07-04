@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load custom_filter %}
+{% block title_block %}{{ user }}{% endblock %}
+{% block body_block %}
+    <br>
+{% for blog in user.post_author.all %}
+    <h3>{{ blog.blog_title }}</h3>
+    <h6>{{ blog.publish_date }}</h6>
+    <div class="row">
+    <div class="cal-sm-2">
+         <img src="/media/{{ blog.blog_image }}" width="100%">
+    </div>
+    <div class="cal-sm-10">
+      <p>{{ blog.blog_content |range_filter|linebreaks }}<a href="{% url 'App_blog:blog_details' blog_title=blog.blog_title %}">Read More</a></p>
+    </div>
+    </div>
+    <button type="submit" class='btn btn-warning btn-sm'><a href="{% url 'App_blog:edit_blog' pk=blog.pk %}">Edit Blog</a></button>
+    <hr>
+{% endfor %}
+{% endblock %}

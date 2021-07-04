@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}Create A New Blog{% endblock %}
+{% block body_block %}
+  <h1>Create A New Blog</h1><br><br>
+      <form method="POST" enctype="multipart/form-data">
+      {{ form|crispy }}
+      {% csrf_token %}
+      <button type="submit" class="btn btn-success btn-sm">Publish</button>
+  </form>
+{% endblock %}
